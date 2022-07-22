@@ -22,7 +22,7 @@ public class snapToGrid : MonoBehaviour
             Vector2 mouspos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = mouspos;
         }
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0) && !placed)
         {
             if (Physics2D.OverlapCircle(transform.position, 0.1f, plantLayer)) Destroy(gameObject);
             transform.position = new Vector2(Mathf.RoundToInt(transform.position.x / gridSize) * gridSize, Mathf.RoundToInt(transform.position.y / gridSize)* gridSize);
